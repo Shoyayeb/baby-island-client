@@ -1,12 +1,13 @@
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import { Fragment } from 'react'
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { MenuIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
+import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
+    { name: 'Dashboard', to: '/home', current: true },
+    { name: 'Add New', to: '/addnew', current: false },
+    { name: 'Purchase', to: '/purchase', current: false },
+    { name: 'Login', to: '/login', current: false },
 ]
 
 function classNames(...classes) {
@@ -34,22 +35,22 @@ export default function Navbar() {
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex-shrink-0 flex items-center">
                                     <img
-                                        className="block lg:hidden h-8 w-auto"
-                                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                                        className="block lg:hidden h-10 w-auto"
+                                        src="/logo.png"
                                         alt="Workflow"
                                     />
                                     <img
-                                        className="hidden lg:block h-8 w-auto"
-                                        src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                                        className="hidden lg:block h-12 w-auto"
+                                        src="/logo.png"
                                         alt="Workflow"
                                     />
                                 </div>
                                 <div className="hidden sm:block sm:ml-6">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
-                                            <a
+                                            <Link
                                                 key={item.name}
-                                                href={item.href}
+                                                to={item.to}
                                                 className={classNames(
                                                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                     'px-3 py-2 rounded-md text-sm font-medium'
@@ -57,19 +58,43 @@ export default function Navbar() {
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button
+                                {/* <button
                                     type="button"
                                     className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                                 >
                                     <span className="sr-only">View notifications</span>
+                                    <span class="w-4 h-4 rounded-full absolute right-2 leading text-xs bg-red-500">
+                                        2
+                                    </span>
                                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                </button>
+                                </button> */}
+
+
+
+                                {/* custom */}
+
+                                {/* hover:text-pink-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white  */}
+
+                                {/* css */}
+
+
+
+                                <Link
+                                    to="/cart"
+                                    class="bg-gray-800 p-1 rounded-full text-md text-gray-100 text-4xl gap-0 hidden sm:flex"
+                                >
+                                    <ShoppingCartIcon className="flex-1 h-6 w-6" aria-hidden="true" />
+                                    <span class="h-4 w-4 rounded-full text-xs text-center bg-red-500" aria-hidden="true">
+                                        0
+                                    </span>
+                                </Link>
+
 
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="ml-3 relative">
@@ -95,32 +120,45 @@ export default function Navbar() {
                                         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <a
-                                                        href="#"
+                                                    <Link
+                                                        to="/cart"
+                                                        class="bg-gray-800 p-1 rounded-full text-md text-gray-100 text-4xl gap-0 flex sm:hidden"
+                                                    >
+                                                        <ShoppingCartIcon className="flex-1 h-6 w-6" aria-hidden="true" />
+                                                        <span class="h-4 w-4 rounded-full text-xs text-center bg-red-500" aria-hidden="true">
+                                                            0
+                                                        </span>
+                                                    </Link>
+                                                )}
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                {({ active }) => (
+                                                    <Link
+                                                        to="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Your Profile
-                                                    </a>
+                                                    </Link>
                                                 )}
                                             </Menu.Item>
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <a
-                                                        href="#"
+                                                    <Link
+                                                        to="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Settings
-                                                    </a>
+                                                    </Link>
                                                 )}
                                             </Menu.Item>
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <a
-                                                        href="#"
+                                                    <Link
+                                                        to="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Sign out
-                                                    </a>
+                                                    </Link>
                                                 )}
                                             </Menu.Item>
                                         </Menu.Items>
@@ -136,7 +174,7 @@ export default function Navbar() {
                                 <Disclosure.Button
                                     key={item.name}
                                     as="a"
-                                    href={item.href}
+                                    to={item.to}
                                     className={classNames(
                                         item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                         'block px-3 py-2 rounded-md text-base font-medium'
