@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AuthProvider from './context/AuthProvider';
+import AddNew from './Pages/AddNew/AddNew';
 import Explore from './Pages/Explore/Explore/Explore';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <PrivateRoute path="/purchase">
               <Purchase></Purchase>
+            </PrivateRoute>
+            <PrivateRoute path="/addnew">
+              <AddNew></AddNew>
             </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>

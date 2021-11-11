@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+
 const ExploreCard = ({ product }) => {
     return (
 
@@ -23,7 +24,12 @@ const ExploreCard = ({ product }) => {
 
                 </div>
                 <div className="mt-0 p-4">
-                    <Link className="px-6 py-2  transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none" to={`/buy${product._id}`}> Buy Now</Link>
+                    <Link className="px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none flex w-max" to={`/buy${product._id}`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span>buy now</span>
+                    </Link>
                 </div>
             </div>
         </div>
