@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const navigation = [
-    { name: 'Dashboard', to: '/home', current: true },
-    { name: 'Add New', to: '/addnew', current: false },
-    { name: 'Purchase', to: '/purchase', current: false },
-    { name: 'Login', to: '/login', current: false },
+    { name: 'Home', to: '/home', current: true, hidden: false },
+    { name: 'Add New', to: '/addnew', current: false, hidden: false },
+    { name: 'Purchase', to: '/purchase', current: false, hidden: false },
+    { name: 'Login', to: '/login', current: false, hidden: false },
+    { name: 'Explore', to: '/explore', current: false, hidden: true },
 ]
 
 function classNames(...classes) {
@@ -30,7 +31,7 @@ export default function Navbar() {
     };
     return (
         <div>
-            <Disclosure as="nav" className="bg-gray-800">
+            <Disclosure as="nav" className="bg-pink-800">
                 {({ open }) => (
                     <>
                         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -68,7 +69,7 @@ export default function Navbar() {
                                                     className={classNames(
                                                         item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                         'px-3 py-2 rounded-md text-sm font-medium'
-                                                    )}
+                                                    ) + classNames(item.hidden ? 'block md:hidden' : '')}
                                                     aria-current={item.current ? 'page' : undefined}
                                                 >
                                                     {item.name}
@@ -97,11 +98,16 @@ export default function Navbar() {
 
                                     {/* css */}
 
-
+                                    <Link
+                                        to="/explore"
+                                        className="sm:block hidden text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'"
+                                    >
+                                        Explore
+                                    </Link>
 
                                     <Link
                                         to="/cart"
-                                        className="bg-gray-800 p-1 rounded-full text-md text-gray-100 text-4xl gap-0 hidden sm:flex"
+                                        className="bg-gray-800 ml-3 p-1 rounded-full text-md text-gray-100 text-4xl gap-0 hidden sm:flex"
                                     >
                                         <ShoppingCartIcon className="flex-1 h-6 w-6" aria-hidden="true" />
                                         <span className="h-4 w-4 rounded-full text-xs text-center bg-red-500" aria-hidden="true">
@@ -154,7 +160,7 @@ export default function Navbar() {
                                                                     "block w-full px-4 text-center py-2 text-sm text-pink-500 font-normal"
                                                                 )}
                                                             >
-                                                                My Booking
+                                                                My Orders
                                                             </Link>
                                                         )}
                                                     </Menu.Item>
@@ -180,7 +186,7 @@ export default function Navbar() {
                                                                     "block w-full px-4 py-2 text-center text-sm text-pink-500 font-normal"
                                                                 )}
                                                             >
-                                                                Add a New Plan
+                                                                Dashboard
                                                             </Link>
                                                         )}
                                                     </Menu.Item>

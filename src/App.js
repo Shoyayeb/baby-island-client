@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AuthProvider from './context/AuthProvider';
+import Explore from './Pages/Explore/Explore/Explore';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import NotFound from './Pages/NotFound/NotFound';
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route path="/home">
               <Home />
+            </Route>
+            <Route path="/explore">
+              <Explore />
             </Route>
             <Route path="/login">
               <Login></Login>
