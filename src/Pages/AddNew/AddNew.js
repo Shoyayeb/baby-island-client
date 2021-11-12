@@ -1,32 +1,62 @@
+import { axios } from 'axios';
 import React, { useState } from 'react';
 
 const AddNew = () => {
     // name, description, image, price and button
 
-    const [Name, setName] = useState('');
-    const [Description, setDescription] = useState('');
-    const [Image, setImage] = useState('');
-    const [Price, setPrice] = useState('');
+    const [formName, setFormName] = useState('');
+    const [formDescription, setFormDescription] = useState('');
+    const [formImage, setFormImage] = useState('');
+    const [formPrice, setFormPrice] = useState('');
 
 
     const nameChange = (e) => {
-        setName(e.target.value);
+        setFormName(e.target.value);
     }
     const descriptionChange = (e) => {
-        setDescription(e.target.value);
+        setFormDescription(e.target.value);
     }
     const imageChange = (e) => {
-        setImage(e.target.value);
+        setFormImage(e.target.value);
     }
     const priceChange = (e) => {
-        setPrice(e.target.value);
+        setFormPrice(e.target.value);
     }
-
-
-    const handleForm = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
+        const formData = {
+            name: formName,
+            description: formDescription,
+            image: formImage,
+            price: formPrice,
+            pending: true,
+        }
+        // addProduct(formData);
+        fetch('https://baby-island.herokuapp.com/addnew', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                alert("added");
+            })
+
     }
+    const addProduct = (data) => {
+        axios.post("http://localhost:5000/addnew", data)
+            .then((res) => {
+                if (res.data.insertedId) {
+                    alert("added");
+                    console.log(res);
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+    };
     return (
         <div class="bg-white rounded-lg shadow sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden my-5">
             <div class="px-4 py-8 sm:px-10">
@@ -46,7 +76,7 @@ const AddNew = () => {
                     </div>
                 </div>
                 <div class="mt-6">
-                    <form onSubmit={handleForm} class="w-full space-y-6">
+                    <form onSubmit={handleSubmit} class="w-full space-y-6">
                         <div class="w-full">
                             <div class="  ">
                                 <input required aria-required="true" type="text" id="product-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Product Name" onChange={nameChange} />
@@ -54,7 +84,7 @@ const AddNew = () => {
                         </div>
                         <div class="w-full">
                             <div class="  ">
-                                <input required aria-required="true" type="text" id="product-description" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Product Description" onChange={descriptionChange} />
+                                <textarea required aria-required="true" type="text" id="product-description" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Product Description" onChange={descriptionChange} />
                             </div>
                         </div>
                         <div class="w-full">
