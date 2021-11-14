@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -26,37 +27,14 @@ const Banner = () => {
                                         <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                                             <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
                                                 <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
+                                                    src="https://image.freepik.com/free-photo/two-little-baby-girls-playing-with-toys-inflatable-pool-summer-sunny-day_155003-16124.jpg"
                                                     alt=""
                                                     className="w-full h-full object-center object-cover"
                                                 />
                                             </div>
                                             <div className="w-44 h-64 rounded-lg overflow-hidden">
                                                 <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
+                                                    src="https://image.freepik.com/free-photo/two-year-kid-bathes-with-toys_1398-669.jpg"
                                                     alt=""
                                                     className="w-full h-full object-center object-cover"
                                                 />
@@ -65,14 +43,37 @@ const Banner = () => {
                                         <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                                             <div className="w-44 h-64 rounded-lg overflow-hidden">
                                                 <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
+                                                    src="https://image.freepik.com/free-photo/little-toddler-boy-bathing-park_1303-15972.jpg"
                                                     alt=""
                                                     className="w-full h-full object-center object-cover"
                                                 />
                                             </div>
                                             <div className="w-44 h-64 rounded-lg overflow-hidden">
                                                 <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
+                                                    src="https://image.freepik.com/free-photo/front-view-children-playing-together-kindergarten_23-2148633303.jpg"
+                                                    alt=""
+                                                    className="w-full h-full object-center object-cover"
+                                                />
+                                            </div>
+                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
+                                                <img
+                                                    src="https://image.freepik.com/free-photo/two-little-girls-playing-with-toys-yellow-isolated-background_89411-854.jpg"
+                                                    alt=""
+                                                    className="w-full h-full object-center object-cover"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
+                                                <img
+                                                    src="https://image.freepik.com/free-photo/kid-playing-with-colorful-wooden-abacus_53876-137649.jpg"
+                                                    alt=""
+                                                    className="w-full h-full object-center object-cover"
+                                                />
+                                            </div>
+                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
+                                                <img
+                                                    src="https://image.freepik.com/free-photo/beautiful-little-girl-playing-with-large-educational-toy-yellow-background-with-space-text_208700-1105.jpg"
                                                     alt=""
                                                     className="w-full h-full object-center object-cover"
                                                 />
@@ -82,12 +83,12 @@ const Banner = () => {
                                 </div>
                             </div>
 
-                            <a
-                                href="/"
-                                className="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700"
+                            <Link
+                                to="/explore"
+                                className="inline-block text-center bg-pink-400 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-pink-600"
                             >
-                                Shop Collection
-                            </a>
+                                Explore Now
+                            </Link>
                         </div>
                     </div>
                 </div>

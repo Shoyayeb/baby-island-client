@@ -1,14 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
+import { Link, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
+    // login-register
     const handleForm = (e) => {
         e.preventDefault();
     }
+    const location = useLocation();
+    const history = useHistory();
     const { error, signInUsingGoogle, signInUsingGithub, emailChange, passChange, signUserWithEmail, formEmail, formPass, } = useAuth();
-    return (
+    // redirect
 
+    // const handleLogin = (provider) => {
+    //     if (provider === "google") {
+    //         signInUsingGoogle().then((res) => {
+    //             history.push(redirect_uri);
+    //         });
+    //     } else if (provider === "github") {
+    //         signInUsingGithub().then((res) => {
+    //             history.push(redirect_uri);
+    //         });
+    //     } else if (provider === "emailpass") {
+    //         signUserWithEmail(formEmail, formPass).then((res) => {
+    //             history.push(redirect_uri);
+    //         });
+    //     };
+    // }
+    return (
         <div className="bg-white dark:bg-gray-800">
             <div className="flex md:flex-row flex-col-reverse  px-4 py-6 overflow-hidden sm:px-6 sm:py-8 lg:p-12 xl:p-16">
                 <div>
@@ -91,7 +111,7 @@ const Login = () => {
                                 </div>
                                 <div class="flex w-full">
                                     <button type="submit"
-                                        onClick={() => { signUserWithEmail(formEmail, formPass) }}
+                                        onClick={() => { signUserWithEmail(formEmail, formPass, history, location) }}
                                         class="py-2 px-4  bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                         Login
                                     </button>
@@ -103,8 +123,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
-
     );
-};
+}
 
 export default Login;

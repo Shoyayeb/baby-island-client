@@ -31,14 +31,14 @@ export default function Navbar() {
     };
     return (
         <div>
-            <Disclosure as="nav" className="bg-pink-800">
+            <Disclosure as="nav" className="bg-pink-600">
                 {({ open }) => (
                     <>
                         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                             <div className="relative flex items-center justify-between h-16">
                                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                     {/* Mobile menu button*/}
-                                    <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                    <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                         <span className="sr-only">Open main menu</span>
                                         {open ? (
                                             <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -67,7 +67,7 @@ export default function Navbar() {
                                                     key={item.name}
                                                     to={item.to}
                                                     className={classNames(
-                                                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                        'text-white hover:bg-pink-700 ',
                                                         'px-3 py-2 rounded-md text-sm font-medium'
                                                     ) + classNames(item.hidden ? 'block md:hidden' : '')}
                                                     aria-current={item.current ? 'page' : undefined}
@@ -79,25 +79,6 @@ export default function Navbar() {
                                     </div>
                                 </div>
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                    {/* <button
-                                    type="button"
-                                    className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                >
-                                    <span className="sr-only">View notifications</span>
-                                    <span className="w-4 h-4 rounded-full absolute right-2 leading text-xs bg-red-500">
-                                        2
-                                    </span>
-                                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                </button> */}
-
-
-
-                                    {/* custom */}
-
-                                    {/* hover:text-pink-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white  */}
-
-                                    {/* css */}
-
                                     <Link
                                         to="/explore"
                                         className="sm:block hidden text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'"
@@ -107,18 +88,16 @@ export default function Navbar() {
 
                                     <Link
                                         to="/cart"
-                                        className="bg-gray-800 ml-3 p-1 rounded-full text-md text-gray-100 text-4xl gap-0 hidden sm:flex"
+                                        className="ml-3 p-1 rounded-full text-md text-gray-100 text-4xl gap-0 hidden sm:flex"
                                     >
                                         <ShoppingCartIcon className="flex-1 h-6 w-6" aria-hidden="true" />
-                                        <span className="h-4 w-4 rounded-full text-xs text-center bg-red-500" aria-hidden="true">
+                                        <span className="h-4 w-4 rounded-full text-xs text-center bg-gray-900" aria-hidden="true">
                                             0
                                         </span>
                                     </Link>
-
-
                                     {/* Profile dropdown */}
                                     {user.displayName ? (
-                                        <Menu as="div" className="ml-3">
+                                        <Menu as="div" className="ml-3 relative">
                                             <div>
                                                 <Menu.Button className="bg-gray-200 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-pink-500 focus:ring-white">
                                                     <span className="sr-only">Open user menu</span>
@@ -211,7 +190,7 @@ export default function Navbar() {
                                         <Link
                                             to="/login"
                                             className={classNames(
-                                                "text-white bg-pink-400 hover:text-pink-500 hover:bg-white hover:border-pink-500 border-pink-400 border-2",
+                                                "text-pink-500 bg-white hover:text-white hover:bg-pink-500 hover:border-pink-500 border-pink-400 border-2",
                                                 "block px-3 py-2 rounded-md text-base font-medium"
                                             )}
                                         >

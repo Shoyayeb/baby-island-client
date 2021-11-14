@@ -15,7 +15,7 @@ const ProductsCard = ({ product }) => {
                         {description.split(/[@]/)[0]}
                     </p>
                     <div className="mt-0 p-4 flex justify-between items-center rounded hover:bg-pink-200">
-                        <p class="font-bold text-2xl ">{product.price + ' '}$</p>
+                        <p class="font-bold text-2xl ">{price + ' '}$</p>
                         <Link className="px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-pink-500 hover:text-white border-2 border-pink-500 focus:outline-none flex w-max" to={`/buy/${product._id}`}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
