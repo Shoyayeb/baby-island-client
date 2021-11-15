@@ -112,6 +112,7 @@ const useFirebase = () => {
     return {
         user,
         error,
+        setError,
         isLoading,
         emailChange,
         passChange,

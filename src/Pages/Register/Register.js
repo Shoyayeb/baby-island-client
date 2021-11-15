@@ -1,4 +1,6 @@
+import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline';
 import React from 'react';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
@@ -6,29 +8,60 @@ const Register = () => {
     const handleForm = (e) => {
         e.preventDefault();
     }
-    const { error, signInUsingGoogle, signInUsingGithub, createUserWithEmail, emailChange, passChange, nameChange, formEmail, formPass, formName } = useAuth();
+    const { error, setError, signInUsingGoogle, signInUsingGithub, createUserWithEmail, emailChange, passChange, nameChange, formEmail, formPass, formName } = useAuth();
     return (
         <div className="bg-white dark:bg-gray-800">
-            <div className="flex md:flex-row flex-col-reverse  px-4 py-6 overflow-hidden sm:px-6 sm:py-8 lg:p-12 xl:p-16">
+            {error ? <div className="bg-red-600" id="error">
+                <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+                    <div className="flex items-center justify-between flex-wrap">
+                        <div className="w-0 flex-1 flex items-center">
+                            <span className="flex p-2 rounded-lg bg-red-800">
+                                <SpeakerphoneIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                            </span>
+                            <p className="ml-3 font-medium text-white truncate">
+                                {error}
+                            </p>
+                        </div>
+                        <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
+                            <a
+                                href="/"
+                                className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-red-600 bg-white hover:bg-red-50"
+                            >
+                                Learn more
+                            </a>
+                        </div>
+                        <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
+                            <button
+                                onClick={() => { setError('') }}
+                                type="button"
+                                className="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+                            >
+                                <span className="sr-only">Dismiss</span>
+                                <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> : ''}
+
+            <div className="flex md:flex-row flex-col-reverse justify-around px-4 py-6 overflow-hidden sm:px-6 sm:py-8 lg:p-12 xl:p-16">
                 <div>
                     <h2 className="text-2xl font-semibold font-display text-black dark:text-white sm:text-3xl">
-                        We&#x27;ve got more coming...
+                        Login with Google or Github
                     </h2>
                     <p className="mt-2 max-w-xl text-base text-gray-400">
-                        Want to hear from us when we add new components? Sign up for our newsletter and we&#x27;ll email you every time we release a new batch of components.
+                        You can login with google and github by just clicking the button below
                     </p>
-                    <form>
-                        <div className="sm:flex jusitfy-start mt-6">
-                            <form className="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
-                                <div className=" relative ">
-                                    <input type="text" id="&quot;form-subscribe-Subscribe" className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent" placeholder="Email" />
-                                </div>
-                                <button className="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-pink-600 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-pink-200" type="submit">
-                                    Subscribe
-                                </button>
-                            </form>
-                        </div>
-                    </form>
+                    <div className="sm:flex gap-4 jusitfy-start mt-6">
+                        <button type="button" onCLick={signInUsingGoogle} class="py-2 px-4 my-3 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                            <FaGoogle className="mx-2" />
+                            Google
+                        </button>
+                        <button type="button" onClick={signInUsingGithub} class="py-2 px-4 my-3 flex justify-center items-center  bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                            <FaGithub className="mx-2" />
+                            Github
+                        </button>
+                    </div>
                 </div>
 
                 <div className="lg:block ">

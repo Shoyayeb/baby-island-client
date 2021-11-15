@@ -20,8 +20,6 @@ export default function Navbar() {
     const { user, logOut } = useAuth();
     const [open, setOpen] = useState(false);
     const cancelButtonRef = useRef(null);
-    const email = user?.email;
-    const shortEmail = email?.split("@");
     const logOutModal = () => {
         setOpen(true);
     };
@@ -133,33 +131,7 @@ export default function Navbar() {
                                                     <Menu.Item>
                                                         {({ active }) => (
                                                             <Link
-                                                                to={`/myorders/${shortEmail[0]}`}
-                                                                className={classNames(
-                                                                    active ? "bg-gray-100" : "",
-                                                                    "block w-full px-4 text-center py-2 text-sm text-pink-500 font-normal"
-                                                                )}
-                                                            >
-                                                                My Orders
-                                                            </Link>
-                                                        )}
-                                                    </Menu.Item>
-                                                    <Menu.Item>
-                                                        {({ active }) => (
-                                                            <Link
-                                                                to="/allorders"
-                                                                className={classNames(
-                                                                    active ? "bg-gray-100" : "",
-                                                                    "block w-full px-4 text-center py-2 text-sm text-pink-500 font-normal"
-                                                                )}
-                                                            >
-                                                                Manage All Booking
-                                                            </Link>
-                                                        )}
-                                                    </Menu.Item>
-                                                    <Menu.Item>
-                                                        {({ active }) => (
-                                                            <Link
-                                                                to="/newplan"
+                                                                to="/dashboard"
                                                                 className={classNames(
                                                                     active ? "bg-gray-100" : "",
                                                                     "block w-full px-4 py-2 text-center text-sm text-pink-500 font-normal"

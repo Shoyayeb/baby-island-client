@@ -3,7 +3,7 @@ import React from 'react';
 const Features = () => {
     return (
 
-        <div class="sm:flex flex-wrap justify-center items-center text-center gap-8">
+        <div class="md:flex flex-wrap justify-center items-center text-center gap-8">
             <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 py-4 bg-white mt-6  shadow-lg rounded-lg dark:bg-gray-800">
                 <div class="flex-shrink-0">
                     <div class="flex items-center mx-auto justify-center h-12 w-12 rounded-md bg-pink-500 text-white">
