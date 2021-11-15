@@ -8,7 +8,6 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import NotFound from './Pages/NotFound/NotFound';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
-import Purchase from './Pages/Purchase/Purchase';
 import Register from './Pages/Register/Register';
 import Footer from './Pages/Shared/Footer/Footer';
 import Navbar from './Pages/Shared/Navbar/Navbar';
@@ -35,16 +34,13 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <PrivateRoute path="/purchase">
-              <Purchase></Purchase>
-            </PrivateRoute>
             <PrivateRoute path="/addnew">
               <AddNew></AddNew>
             </PrivateRoute>
             <PrivateRoute path="/dashboard">
               <DashBoard></DashBoard>
             </PrivateRoute>
-            <PrivateRoute path="/buy:product">
+            <PrivateRoute path="/buy/:toyId">
               <Buy></Buy>
             </PrivateRoute>
             <Route path="*">

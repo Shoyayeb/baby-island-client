@@ -127,7 +127,7 @@ const Footer = () => {
                     </a>
                 </div>
                 <div class="text-center pt-10 sm:pt-12 font-light flex items-center justify-center">
-                    Created by Charlie
+                    All rights reserved
                 </div>
             </div>
         </footer>

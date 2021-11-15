@@ -51,9 +51,10 @@ const useFirebase = () => {
             signInWithEmailAndPassword(auth, formEmail, formPass)
                 .then(result => {
                     const redirect_uri = location.state?.from || "/home";
+                    history.push(redirect_uri);
                     setError('')
                     setUser(result.user);
-                    history.push(redirect_uri);
+
                 })
                 .catch(error => {
                     setError(error.message)
@@ -64,12 +65,13 @@ const useFirebase = () => {
             setError("please enter your email and password")
         }
     }
-    const signInUsingGoogle = () => {
+    const signInUsingGoogle = (history, location) => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 setError('');
                 setUser(result.user);
-
+                const redirect_uri = location.state?.from || "/home";
+                history.push(redirect_uri);
             })
             .catch(error => {
                 setError(error.message);
@@ -77,11 +79,14 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false))
     };
-    const signInUsingGithub = () => {
+    const signInUsingGithub = (history, location) => {
         signInWithPopup(auth, githubProvider)
             .then(result => {
                 setError('');
                 setUser(result.user);
+                const redirect_uri = location.state?.from || "/home";
+                history.push(redirect_uri);
+
             })
             .catch(error => {
                 setError(error.message);
