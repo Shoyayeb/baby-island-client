@@ -20,6 +20,7 @@ export default function Navbar() {
     const { user, logOut } = useAuth();
     const [open, setOpen] = useState(false);
     const cancelButtonRef = useRef(null);
+
     const logOutModal = () => {
         setOpen(true);
     };
@@ -27,6 +28,11 @@ export default function Navbar() {
         logOut();
         setOpen(false);
     };
+
+    const windowLocation = window.location.href;
+    if (windowLocation.includes("/dashboard")) {
+        console.log(windowLocation);
+    }
     return (
         <div>
             <Disclosure as="nav" className="bg-pink-600">

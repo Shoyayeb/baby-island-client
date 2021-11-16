@@ -11,16 +11,16 @@ const Register = () => {
     return (
         <div className="bg-white dark:bg-gray-800">
             {error ?
-                <div class="bg-red-500 flex items-center text-white text-sm font-bold px-4 py-3 relative w-full" role="alert">
-                    <svg width="20" height="20" fill="currentColor" class="w-4 h-4 mr-2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                <div className="bg-red-500 flex items-center text-white text-sm font-bold px-4 py-3 relative w-full" role="alert">
+                    <svg width="20" height="20" fill="currentColor" className="w-4 h-4 mr-2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1216 1344v128q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h64v-384h-64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h384q26 0 45 19t19 45v576h64q26 0 45 19t19 45zm-128-1152v192q0 26-19 45t-45 19h-256q-26 0-45-19t-19-45v-192q0-26 19-45t45-19h256q26 0 45 19t19 45z">
                         </path>
                     </svg>
                     <p>
                         {error}
                     </p>
-                    <button class="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => { setError('') }}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="h-6 w-6 text-white" viewBox="0 0 1792 1792">
+                    <button className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => { setError('') }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="h-6 w-6 text-white" viewBox="0 0 1792 1792">
                             <path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z">
                             </path>
                         </svg>
@@ -37,11 +37,11 @@ const Register = () => {
                         You can login with google and github by just clicking the button below
                     </p>
                     <div className="sm:flex gap-4 jusitfy-start mt-6">
-                        <button type="button" onClick={signInUsingGoogle} class="py-2 px-4 my-3 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                        <button type="button" onClick={signInUsingGoogle} className="py-2 px-4 my-3 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                             <FaGoogle className="mx-2" />
                             Google
                         </button>
-                        <button type="button" onClick={signInUsingGithub} class="py-2 px-4 my-3 flex justify-center items-center  bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                        <button type="button" onClick={signInUsingGithub} className="py-2 px-4 my-3 flex justify-center items-center  bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                             <FaGithub className="mx-2" />
                             Github
                         </button>

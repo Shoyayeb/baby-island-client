@@ -13,13 +13,13 @@ const Products = () => {
             })
     }, [])
     return (
-        <div class="w-full bg-white p-12">
-            <div class="header flex items-end justify-between mb-12">
-                <div class="title">
-                    <p class="text-4xl font-bold text-gray-800 mb-4">
+        <div className="w-full bg-white p-12">
+            <div className="header flex items-end justify-between mb-12">
+                <div className="title">
+                    <p className="text-4xl font-bold text-gray-800 mb-4">
                         Lastest Toys from world class manufacturer
                     </p>
-                    <p class="text-2xl font-light text-pink-400">
+                    <p className="text-2xl font-light text-pink-400">
                         All products are verified by 2 experts and valdiate by the CTO
                     </p>
                 </div>
@@ -30,7 +30,7 @@ const Products = () => {
                     </path>
                 </svg>
                 loading
-            </div> : <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+            </div> : <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
                 {products.map((product) => (
                     <ProductsCard
                         key={product._id}
