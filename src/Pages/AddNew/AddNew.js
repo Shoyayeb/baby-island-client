@@ -1,4 +1,3 @@
-import { axios } from 'axios';
 import React, { useState } from 'react';
 
 const AddNew = () => {
@@ -46,17 +45,6 @@ const AddNew = () => {
             })
 
     }
-    const addProduct = (data) => {
-        axios.post("http://localhost:5000/addnew", data)
-            .then((res) => {
-                if (res.data.insertedId) {
-                    alert("added");
-                    console.log(res);
-                }
-            }).catch(function (error) {
-                console.log(error);
-            });
-    };
     return (
         <div class="bg-white rounded-lg shadow sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden my-5">
             <div class="px-4 py-8 sm:px-10">
