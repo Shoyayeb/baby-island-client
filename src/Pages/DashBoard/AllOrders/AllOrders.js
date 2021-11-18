@@ -1,4 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
+import React from 'react';
+
 const people = [
     {
         name: 'Jane Cooper',
@@ -9,18 +11,25 @@ const people = [
         image:
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
     },
-    // More people...
+    {
+        name: 'Jane Cooper',
+        title: 'Regional Paradigm Technician',
+        department: 'Optimization',
+        role: 'Admin',
+        email: 'jane.cooper@edsxample.com',
+        image:
+            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    },
 ]
 
-export default function Example() {
+const AllOrders = () => {
     return (
-        <div className="flex flex-col">
-            {/* overflow for left-right to scroll and show data of orders */}
-            <div className="-my-2 overflow-x-auto">
+        <div className={`flex flex-col `}>
+            <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table className="min-w-full divide-y divide-gray-200">
-                            <thead className="bg-gray-50">
+                            <thead className="bg-gray-50 hidden md:block">
                                 <tr>
                                     <th
                                         scope="col"
@@ -51,9 +60,9 @@ export default function Example() {
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody className="bg-white divide-y divide-gray-200">
+                            <tbody className="bg-white divide-y divide-gray-200 ">
                                 {people.map((person) => (
-                                    <tr key={person.email}>
+                                    <tr key={person.email} className="flex flex-col md:flex-row">
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <div className="flex items-center">
                                                 <div className="flex-shrink-0 h-10 w-10">
@@ -88,5 +97,7 @@ export default function Example() {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default AllOrders;
