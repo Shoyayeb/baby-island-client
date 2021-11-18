@@ -1,47 +1,38 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { ShoppingCartIcon, XIcon } from '@heroicons/react/outline'
 import { Fragment } from 'react'
 
 const navigation = [
     { name: 'My orders', href: '#' },
     { name: 'Review', href: '#' },
     { name: 'Payment', href: '#' },
+    { name: 'Log out', href: '#' },
 ]
 
 export default function Nav() {
     return (
-        <div className="relative bg-white overflow-hidden">
+        <div className=" bg-white overflow-hidden">
             <Popover>
-                <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
-                    <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+                <div className=" pt-6 px-4 sm:px-6 lg:px-8">
+                    <nav className=" flex items-center justify-between lg:justify-center" aria-label="Global">
                         <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-                            <div className="flex items-center justify-between w-full md:w-auto">
-                                <a href="/">
-                                    <span className="sr-only">Workflow</span>
-                                    <img
-                                        className="h-8 w-auto sm:h-10"
-                                        alt="alt"
-                                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                                    />
-                                </a>
+                            <div className="flex items-center justify-around w-full md:w-auto">
                                 <div className="-mr-2 flex items-center md:hidden">
                                     <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                         <span className="sr-only">Open main menu</span>
-                                        <MenuIcon className="h-6 w-6" aria-hidden="true" />
                                     </Popover.Button>
                                 </div>
                             </div>
                         </div>
-                        <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+                        <div className="hidden md:ml-10 md:pr-4 md:space-x-8 md:flex md:justify-center">
                             {navigation.map((item) => (
-                                <a key={item.name} href={item.href} className="font-medium text-gray-500 hover:text-gray-900">
-                                    {item.name}
-                                </a>
+                                <button class="px-6 py-2 md:h-40 md:w-40 transition ease-in duration-200 uppercase rounded-full hover:bg-pink-500 hover:text-white border-2 border-pink-600 focus:outline-none flex flex-col justify-center items-center">
+                                    {<ShoppingCartIcon className="h-1/2 w-1/2" />}
+                                    <h1 className="h-1/2 w-1/2 ">{item.name}</h1>
+                                </button>
+
                             ))}
-                            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                Log in
-                            </a>
                         </div>
                     </nav>
                 </div>
@@ -87,7 +78,7 @@ export default function Nav() {
                                 ))}
                             </div>
                             <a
-                                href="#"
+                                href="/"
                                 className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
                             >
                                 Log in
