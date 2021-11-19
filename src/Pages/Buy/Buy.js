@@ -23,7 +23,7 @@ const Buy = () => {
     console.log(toy);
     const handleForm = (e) => {
         e.preventDefault();
-        fetch('http://baby-island.herokuapp.com/order', {
+        fetch('https://baby-island.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
