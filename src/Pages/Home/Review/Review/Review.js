@@ -14,7 +14,6 @@ const Review = () => {
                 setLoading(false)
             })
     }, []);
-    console.log(reviews);
     return (
         <div className="my-10">
 

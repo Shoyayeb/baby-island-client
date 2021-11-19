@@ -21,9 +21,6 @@ const AddReview = () => {
     const rateChange = e => {
         setRate(e.target.value);
     }
-    console.log(user);
-
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -43,7 +40,6 @@ const AddReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 alert("added");
             })
 

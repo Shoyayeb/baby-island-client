@@ -20,7 +20,6 @@ const Buy = () => {
         toyStatus: toy.pending,
         toyPrice: toy.price
     }
-    console.log(toy);
     const handleForm = (e) => {
         e.preventDefault();
         fetch('https://baby-island.herokuapp.com/order', {
@@ -32,7 +31,6 @@ const Buy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 alert("Done!");
             })
     }

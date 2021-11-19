@@ -42,7 +42,6 @@ const useFirebase = () => {
             })
             .catch(error => {
                 setError(error.message)
-                console.log(error.message);
             })
             .finally(() => setIsLoading(false));
     }
@@ -58,7 +57,6 @@ const useFirebase = () => {
                 })
                 .catch(error => {
                     setError(error.message)
-                    console.log(error.message);
                 })
                 .finally(() => setIsLoading(false));
         } else {
@@ -75,7 +73,6 @@ const useFirebase = () => {
             })
             .catch(error => {
                 setError(error.message);
-                console.log(error.message);
             })
             .finally(() => setIsLoading(false))
     };
@@ -90,7 +87,6 @@ const useFirebase = () => {
             })
             .catch(error => {
                 setError(error.message);
-                console.log(error.message);
             })
             .finally(() => setIsLoading(false))
     };

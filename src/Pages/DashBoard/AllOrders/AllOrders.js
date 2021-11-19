@@ -23,7 +23,6 @@ const AllOrders = () => {
 
     const handleDelete = (orderId) => {
         const url = `https://baby-island.herokuapp.com/order/${orderId}`;
-        console.log(url);
         fetch(url, {
             method: "DELETE",
         })
@@ -32,7 +31,6 @@ const AllOrders = () => {
                 if (data.deletedCount > 0) {
                     const remaining = orderedToy.filter((restPlan) => restPlan._id !== orderId);
                     setOrderedToys(remaining);
-                    console.log("deleted");
                 }
             });
         setOpen(false);
@@ -40,9 +38,6 @@ const AllOrders = () => {
     const removeModal = () => {
         setOpen(true);
     };
-
-    console.log(orderedToy);
-
     return (
         <div className="flex flex-col">
             {loading ? <div className=" w-min p-5 mx-auto my-4 flex justify-center items-center  bg-pink-600 text-white transition ease-in duration-200">

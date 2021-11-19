@@ -28,11 +28,6 @@ export default function Navbar() {
         logOut();
         setOpen(false);
     };
-
-    const windowLocation = window.location.href;
-    if (windowLocation.includes("/dashboard")) {
-        console.log(windowLocation);
-    }
     return (
         <div>
             <Disclosure as="nav" className="bg-pink-600">
