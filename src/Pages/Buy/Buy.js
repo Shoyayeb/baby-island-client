@@ -15,7 +15,12 @@ const Buy = () => {
         userAddress: address,
         userPhone: phone,
         orderedToy: toyId,
+        toyName: toy.name,
+        toyImage: toy.image,
+        toyStatus: toy.pending,
+        toyPrice: toy.price
     }
+    console.log(toy);
     const handleForm = (e) => {
         e.preventDefault();
         fetch('http://baby-island.herokuapp.com/order', {
@@ -81,7 +86,7 @@ const Buy = () => {
                                     <div>
                                         <span className="block w-full rounded-md shadow-sm">
                                             <button type="submit" className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
-                                                Review
+                                                Buy
                                             </button>
                                         </span>
                                     </div>
