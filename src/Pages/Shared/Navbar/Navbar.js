@@ -1,15 +1,16 @@
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
 import { ExclamationIcon, MenuIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
 
 const navigation = [
     { name: 'Home', to: '/home', current: true, hidden: false },
-    { name: 'Add New', to: '/addnew', current: false, hidden: false },
-    { name: 'Purchase', to: '/purchase', current: false, hidden: false },
-    { name: 'Login', to: '/login', current: false, hidden: false },
-    { name: 'Explore', to: '/explore', current: false, hidden: true },
+    { name: 'Products', to: '/home#products', current: false, hidden: false },
+    { name: 'Features', to: '/home#features', current: false, hidden: false },
+    { name: 'Reviews', to: '/home#reviews', current: false, hidden: false },
+    { name: 'Explore', to: '/explore#explore', current: false, hidden: true },
 ]
 
 function classNames(...classes) {
@@ -17,9 +18,22 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+    const [orderedToy, setOrderedToys] = useState([]);
     const { user, logOut } = useAuth();
     const [open, setOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
     const cancelButtonRef = useRef(null);
+    useEffect(() => {
+        const url = `https://baby-island.herokuapp.com/myorders/${user.displayName}`
+        console.log(url);
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setOrderedToys(data)
+                setLoading(false)
+            })
+    }, []);
+
 
     const logOutModal = () => {
         setOpen(true);
@@ -62,7 +76,7 @@ export default function Navbar() {
                                     <div className="hidden sm:block sm:ml-6">
                                         <div className="flex space-x-4">
                                             {navigation.map((item) => (
-                                                <Link
+                                                <HashLink
                                                     key={item.name}
                                                     to={item.to}
                                                     className={classNames(
@@ -72,7 +86,7 @@ export default function Navbar() {
                                                     aria-current={item.current ? 'page' : undefined}
                                                 >
                                                     {item.name}
-                                                </Link>
+                                                </HashLink>
                                             ))}
                                         </div>
                                     </div>
@@ -86,13 +100,19 @@ export default function Navbar() {
                                     </Link>
 
                                     <Link
-                                        to="/cart"
+                                        to="/dashboard"
                                         className="ml-3 p-1 rounded-full text-md text-gray-100 text-4xl gap-0 hidden sm:flex"
                                     >
                                         <ShoppingCartIcon className="flex-1 h-6 w-6" aria-hidden="true" />
-                                        <span className="h-4 w-4 rounded-full text-xs text-center bg-gray-900" aria-hidden="true">
-                                            0
-                                        </span>
+                                        {loading ? <div className=" w-min p-1 mx-auto my-2 flex justify-center items-center  bg-pink-600 text-white transition ease-in duration-200 text-sm">
+                                            <svg width="20" height="20" fill="currentColor" className="mr-2 animate-spin" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z">
+                                                </path>
+                                            </svg>
+                                            Loading
+                                        </div> : <span className="h-4 w-4 rounded-full text-xs text-center bg-gray-900" aria-hidden="true">
+                                            {orderedToy.length}
+                                        </span>}
                                     </Link>
                                     {/* Profile dropdown */}
                                     {user.displayName ? (
@@ -193,8 +213,9 @@ export default function Navbar() {
                             </div>
                         </Disclosure.Panel>
                     </>
-                )}
-            </Disclosure>
+                )
+                }
+            </Disclosure >
             <Transition.Root show={open} as={Fragment}>
                 <Dialog
                     as="div"
@@ -277,6 +298,6 @@ export default function Navbar() {
                     </div>
                 </Dialog>
             </Transition.Root>
-        </div>
+        </div >
     )
 }

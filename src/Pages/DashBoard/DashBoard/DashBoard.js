@@ -7,46 +7,21 @@ import Pay from '../Pay/Pay';
 
 
 const DashBoard = () => {
-    const [onMyOrders, setOnMyOrders] = useState(true);
-    const [onPay, setOnPay] = useState(false);
-    const [onMyReview, setOnMyReview] = useState(false);
-    const [onLogOut, setOnLogOut] = useState(false);
     const [where, setWhere] = useState('myOrders')
 
     const myOrders = () => {
-        // if (onMyOrders) {
-        //     setOnMyOrders(false)
-        // } else {
-        //     setOnMyOrders(true)
-        //     setOnPay(false)
-        // }
         setWhere('myOrders')
     }
 
     const pay = () => {
-        // if (onPay) {
-        //     setOnPay(false)
-        // } else {
-        //     setOnPay(true)
-        // }
         setWhere('pay')
     }
 
     const review = () => {
-        // if (onMyReview) {
-        //     setOnMyReview(false)
-        // } else {
-        //     setOnMyReview(true)
-        // }
         setWhere('myReview')
     }
 
     const logOut = () => {
-        // if (onLogOut) {
-        //     setOnLogOut(false)
-        // } else {
-        //     setOnLogOut(true)
-        // }
         setWhere('logOut')
     }
     return (

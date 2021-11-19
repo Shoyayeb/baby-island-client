@@ -6,7 +6,6 @@ import useAuth from '../../../hooks/useAuth';
 
 const AllOrders = () => {
     const [orderedToy, setOrderedToys] = useState([]);
-    const [toy, setToy] = useState([]);
     const [loading, setLoading] = useState(true);
     const { user } = useAuth();
     const [open, setOpen] = useState(false);
