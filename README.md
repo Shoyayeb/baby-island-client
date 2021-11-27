@@ -1,15 +1,16 @@
-pages: 
-        1.Home - the amazing home
-        2.Explore -all products
-        3.* Purchase -detailed item and form for buy
-        4.Dashboard - 
-                    pay,
-                    my-orders,
-                    review,
-                    logout
-        5. Admin - 
-                Manage all orders,
-                Add a product - rating(),
-                Make Admin,
-                Manage products,
-                Logout
+
+
+# Baby Island Niche Website: 
+
+
+## Description:
+You can buy any types of `toy` from here for babies aged from `1 year to ∞`. We store a varity of collections. Just add to cart and buy the toy for your baby.
+#
+## [Baby Island](https://baby-island-ccea1.web.app/)
+#
+## Website Features: 
+- Complete Niche website with admin & client dashboard with CRUD operation.
+- Clients can buy products, see orders, cancel them and add reviews.
+- Admin can add new product, modify or delete product and make others admin
+- **Technology**: Reactjs, Context API, Tailwind, Firebase, Node, MongoDB, Express,
+React-router-dom, Axios
